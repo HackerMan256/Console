@@ -21,7 +21,7 @@ public class Games {
 
             if (input == correctNumber) {
                 System.out.println("You won!. It was " + correctNumber + ".");
-                System.out.println("Your score: " + attemptsLeft * 100 + "points.");
+                System.out.println("Your score: " + attemptsLeft * 100 + " points.");
                 break;
             } else if (input < correctNumber) {
                 System.out.println("It's higher.");

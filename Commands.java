@@ -9,7 +9,7 @@ public class Commands {
     long freeMemory = runtime.freeMemory();
 
     public String info() {
-        return "Program version 0.2 VERSION-DATE: 2026-04-04. Made by: HackerMan_256";
+        return "Program version 0.2 VERSION-DATE: 2026-04-07. Made by: HackerMan_256";
     }
 
     public void hello() {
@@ -17,7 +17,7 @@ public class Commands {
     }
 
     public void help() {
-        String help[] = {"about", "beep", "games", "hello", "help", "quit"};
+        String help[] = {"about", "games", "hello", "help", "quit"};
         System.out.println("Listing all avaliable commands:");
         for (int i = 0; i < help.length; i++) {
 			System.out.println(" - " + help[i]);
