@@ -1,41 +1,48 @@
 import java.util.Scanner;
+import java.awt.Toolkit;
 
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Hello, World!");
-        System.out.println("Welcome to the CONSOLE! Feel free to type commands and stuff.");
+        Commands commands = new Commands();
+        Runtime runtime = Runtime.getRuntime();
 
-		String info = "Program version 0.1 VERSION-DATE: 2026-02-20. Made by: HackerMan_256";
+        long totalMemory = runtime.totalMemory();
+        long freeMemory = runtime.freeMemory();
+        long usedMemory = totalMemory - freeMemory;
+
+        System.out.println(commands.info());
+        System.out.println();
+        System.out.println("Total memory: " + totalMemory + " bytes.");
+        System.out.println("Memory in use: " + usedMemory + " bytes.");
+        System.out.println();
+
         String input;
-        String help[] = {"about", "beep", "hello", "help", "quit"};
         
         do {
-			//System.out.println();
             System.out.print(">");
             input = scanner.nextLine();
 
             if (input.equals("")) {
-				
+				// Do nothing.
 			} else if (input.equalsIgnoreCase("about")) {
-				System.out.println(info);
+				System.out.println(commands.info());
 			} else if (input.equalsIgnoreCase("beep")) {
-				System.out.println("beep!");
+				Toolkit.getDefaultToolkit().beep();
 			} else if (input.equalsIgnoreCase("hello")) {
-				System.out.println("Hello, World!");
+				commands.hello();
 			} else if (input.equalsIgnoreCase("help")) {
-				System.out.println("Listing all the commands avaliable:");
-				for (int i = 0; i < help.length; i++) {
-					System.out.println(" - " + help[i]);
-				}
+				commands.help();
+            } else if (input.equalsIgnoreCase("games")) {
+                commands.gameMenu();
             } else if (input.equalsIgnoreCase("quit")) {
-				System.out.println("Good bye!");
-				scanner.close();
-				break;
+                break;
             } else {
                 System.out.println("ERROR: INVALID COMMAND!");
             }
         } while(true);
+
+        System.out.println("Good bye!");
+		scanner.close();
     }
 }
